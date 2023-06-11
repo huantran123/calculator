@@ -7,9 +7,10 @@ import './App.css';
 const App = () => {
   const [expression, setExpression] = useState('')
   const [result, setResult] = useState(0)
+  const [history, setHistory] = useState([])
 
-  const calculate = () => {
-    setResult(eval(expression))
+  const calculate = (value) => {
+    setResult(value)
   }
 
   return (
@@ -18,7 +19,7 @@ const App = () => {
       <div>
         <p>{expression}</p>
         <p><span>=</span><span>{result}</span></p>
-        <Keyboard setExpression={setExpression} calculate={calculate} setResult={setResult} />
+        <Keyboard expression={expression} setExpression={setExpression} calculate={calculate} setResult={setResult} />
       </div>
     </div>
   );
